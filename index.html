@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tbody>
+            <tr class="produto">
+                <td>
+                    <div class="price">R$ 29,90</div>
+                </td>
+                <td>
+                    <input type="number" class="quantity">
+                </td>
+            </tr>
+            <tr class="produto">
+                <td>
+                    <div class="price">R$ 59,90</div>
+                </td>
+                <td>
+                    <input type="number" class="quantity">
+                </td>
+            </tr>
+            <tr class="produto">
+                <td>
+                    <div class="price">R$ 99,90</div>
+                </td>
+                <td>
+                    <input type="number" class="quantity">
+                </td>
+            </tr>
+        </tbody>
+        <tr>
+            <td></td>
+            <td>Total da conta</td>
+            <td>
+                <div id="total">R$ 29,90</div>
+            </td>
+        </tr>
+    </table>
+
+    <input type="button" onclick="calcular()" value="CALCULAR">
+</body>
+
+<script type="text/javascript" src="./scripts/shop.js"></script>
+</html>
