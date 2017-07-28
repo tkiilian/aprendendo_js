@@ -37,22 +37,47 @@ function writeTotal(value) {
 
 
 
-function calcular() {
+function calculateTotalProd() {
 
   var produtos = document.getElementsByClassName("produto");
   var soma = 0;
 
+  var totalProd = 0;
 
   for (var i = 0; i < produtos.length; i++) {
 
     var produto = produtos[i];
-
     var price = produto.getElementsByClassName("price")[0];
-
     var priceText = price.innerText;
-
     soma = soma + moneyTextToFloat(priceText);
+
+    var qtyElement = produto.getElementsByClassName("quantity");
+    var qtyText = qtyElement[0].value;
+    var quantity = moneyTextToFloat(qtyText) || 0;
+
+    var subTotal = quantity * moneyTextToFloat(priceText);
+    totalProd += subTotal;
   }
 
-  document.getElementById("total").innerText = soma;
+  return totalProd;
 }
+
+function quantidadeMudou() {
+
+  writeTotal(calculateTotalProd());
+}
+
+function onDocumentLoad() {
+
+  var textEdits = document.getElementsByClassName("quantity");
+  for (var i = 0; i < textEdits.length; i++) {
+    var textEdit = textEdits[i];
+
+    textEdit.onchange = function () {
+
+      writeTotal(calculateTotalProd());
+    };
+  }
+}
+
+window.onload = onDocumentLoad;
